@@ -28,7 +28,7 @@
     display: grid;
     grid-template-columns: minmax(0, 32%) minmax(0, 68%);
     align-items: end;
-    padding: 12vw 3vw 4vw;
+    padding: 14vw 3vw 4vw;
     overflow: hidden;
   }
 
@@ -64,11 +64,12 @@
     position: absolute;
     top: 0; left: 0;
     width: 100%;
-    height: 11vw;
+    height: auto;
     z-index: 2;
   }
 
   .photo {
+    min-width: 0;
     position: relative;
     z-index: 1;
     align-self: end;
@@ -82,6 +83,7 @@
   }
 
   .text {
+    min-width: 0;
     position: relative;
     z-index: 1;
     padding-left: 3vw;
@@ -90,10 +92,10 @@
   }
   .congrats {
     font-family: "Kaushan Script", cursive;
-    font-size: clamp(3rem, 10.5vw, 11rem);
-    line-height: 1;
+    font-size: clamp(2.4rem, 6.6vw, 8rem);
+    line-height: 1.15;
+    white-space: nowrap;
     color: var(--gold);
-    transform: rotate(-3deg);
     text-shadow: 0 0 30px rgba(245, 185, 20, .25);
   }
   .name {
@@ -110,36 +112,26 @@
     letter-spacing: .02em;
   }
 
-  /* single page-load moment: the heading writes itself in */
-  @media (prefers-reduced-motion: no-preference) {
-    .congrats { animation: reveal 1.4s cubic-bezier(.2,.7,.2,1) both; }
-    @keyframes reveal {
-      from { clip-path: inset(0 100% 0 0); opacity: 0; }
-      to   { clip-path: inset(0 0 0 0);   opacity: 1; }
-    }
-  }
-
   /* phones: stack */
   @media (max-width: 700px) {
     .banner {
       grid-template-columns: 1fr;
-      padding: 24vw 6vw 8vw;
+      padding: 26vw 6vw 8vw;
       gap: 6vw;
     }
     .photo { max-width: 320px; margin: 0 auto; order: 2; }
     .photo img { -webkit-mask-image: none; mask-image: none; }
     .text { padding-left: 0; order: 1; }
-    .congrats { font-size: 17vw; }
+    .congrats { font-size: 12vw; }
     .name { font-size: 8vw; }
     .tagline { font-size: 4vw; }
-    .bunting { height: 22vw; }
   }
 </style>
 </head>
 <body>
   <main class="banner">
 
-    <svg class="bunting" viewBox="0 0 2048 190" preserveAspectRatio="none" aria-hidden="true">
+    <svg class="bunting" viewBox="0 0 2048 190" aria-hidden="true">
       <defs>
         <linearGradient id="g" x1="0" y1="0" x2="1" y2="1">
           <stop offset="0" stop-color="#ffe27a"/>
@@ -150,7 +142,7 @@
           <circle cx="8" cy="8" r="3" fill="#fff" opacity=".85"/>
         </pattern>
       </defs>
-      <path d="M0 40 Q1024 120 2048 40" fill="none" stroke="#777" stroke-width="3"/>
+      <path d="M0 40 Q1024 120 2048 40" fill="none" stroke="#999" stroke-width="3"/>
       <g id="flags"></g>
     </svg>
 
